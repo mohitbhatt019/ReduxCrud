@@ -95,7 +95,16 @@ export const userDetail = createSlice({
     users: [],
     loading: false,
     error: null,
+    searchData:[],
   },
+
+  reducers:{
+    searchUser:(state,action)=>{
+      state.searchData=action.payload;
+    }
+  },
+
+
   //To handle promise, we extrareducer, with this we write 3 things and handle it
   extraReducers: {
     [createUser.pending]: (state) => {
@@ -153,3 +162,4 @@ export const userDetail = createSlice({
 });
 
 export default userDetail.reducer;
+export const {searchUser}=userDetail.actions
